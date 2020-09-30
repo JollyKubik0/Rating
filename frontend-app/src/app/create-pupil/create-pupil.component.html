@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="firstName">First name</label>
+      <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name" required ngModel>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="lastName">Last name</label>
+      <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name" required ngModel>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="dateOfBirth">Date of birth</label>
+      <div class="input-group mb-3">
+        <input style="width: 80%;" matInput [matDatepicker]="pupilDatePicker" type="text" class="form-control" name="dateOfBirth" id="dateOfBirth" placeholder="Date of birth" required ngModel>
+        <div class="input-group-append">`
+          <mat-datepicker-toggle matSuffix [for]="pupilDatePicker"></mat-datepicker-toggle>
+        </div>
+      </div>
+
+      <mat-datepicker #pupilDatePicker></mat-datepicker>
+    </div>
+    <button class="btn btn-primary" type="submit">Create pupil</button>
+  </div>
+</form>
+<br>
+<div *ngIf="this.firstNameError" class="alert alert-danger">Please enter: First name</div>
+<div *ngIf="this.lastNameError" class="alert alert-danger">Please enter: Last name</div>
+<div *ngIf="this.dataError" class="alert alert-danger">Please enter: Date of birth</div>

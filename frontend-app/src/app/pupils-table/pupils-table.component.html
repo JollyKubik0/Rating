@@ -1,0 +1,27 @@
+<br>
+  <div class="row">
+    <app-create-pupil style="padding-left:15px;"></app-create-pupil>
+  </div>
+ <br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pupil of pupils">
+      <td scope="row">{{pupil.id}}</td>
+      <td><p>{{pupil.firstName}}</p></td>
+      <td>{{pupil.lastName}}</td>
+      <td>{{pupil.dateOfBirth}}</td>
+      <td><a [routerLink]="['profile/', pupil.id]"><button class="btn btn-outline-primary">E</button></a></td>
+      <td><button class="btn btn-outline-danger" (click)="onDelete(pupil.id)">X</button></td>
+    </tr>
+  </tbody>
+</table>

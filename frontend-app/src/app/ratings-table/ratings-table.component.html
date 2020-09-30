@@ -1,0 +1,31 @@
+<br>
+  <div class="row">
+    <app-create-rating style="padding-left:15px;"></app-create-rating>
+  </div>
+ <br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Date of Creation</th>
+      <th scope="col">Teacher</th>
+      <th scope="col">Lesson</th>
+      <th scope="col">Pupil</th>
+      <th scope="col">Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rating of ratings">
+      <td>{{rating.id}}</td>
+      <td>{{rating.dateOfCreation}}</td>
+      <td><a [routerLink]="['../teachers/profile/', rating.teacher[0].id]">{{rating.teacher[0].firstName}} {{rating.teacher[0].lastName}}</a></td>
+      <td><a [routerLink]="['../lessons/info/', rating.lesson[0].id]">{{rating.lesson[0].name}}</a></td>
+      <td><a [routerLink]="['../pupils/profile/', rating.pupil[0].id]">{{rating.pupil[0].firstName}} {{rating.pupil[0].lastName}}</a></td>
+      <td>{{rating.rating}}</td>
+
+
+
+      <td><button class="btn btn-outline-danger" (click)="onDelete(rating.id)">X</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="form-row">
+    <div class="col-md-12 mb-6">
+      <label for="firstName">Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="Name" required ngModel>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-8">
+      <button class="btn btn-primary" type="submit">Create lesson</button>
+    </div>
+  </div>
+</form>
+<div *ngIf="this.nameError" class="alert alert-danger">Please enter: Name</div>

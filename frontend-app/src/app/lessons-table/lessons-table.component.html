@@ -1,0 +1,23 @@
+<br>
+  <div class="row">
+    <app-create-lesson style="padding-left:15px;"></app-create-lesson>
+  </div>
+ <br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lesson of lessons">
+      <td scope="row">{{lesson.id}}</td>
+      <td><p>{{lesson.name}}</p></td>
+      <td><a [routerLink]="['info/', lesson.id]"><button class="btn btn-outline-primary">E</button></a></td>
+      <td><button class="btn btn-outline-danger" (click)="onDelete(lesson.id)">X</button></td>
+    </tr>
+  </tbody>
+</table>

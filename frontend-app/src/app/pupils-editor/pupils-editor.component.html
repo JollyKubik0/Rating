@@ -1,0 +1,32 @@
+  <br>
+  <div class="col-md-4">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <p>ID: {{this.pupil.id}}</p>
+      <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" [(ngModel)]="this.pupil.firstName">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last name" [(ngModel)]="this.pupil.lastName">
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+      <div class="input-group mb-3">
+        <input style="width: 80%;" autocomplete="off" matInput [matDatepicker]="pupilDatePicker" type="text" class="form-control" name="dateOfBirth" id="dateOfBirth" [ngModel]="this.dateStartsAt" placeholder="Date of birth" >
+        <div class="input-group-append">
+          <mat-datepicker-toggle matSuffix [for]="pupilDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #pupilDatePicker></mat-datepicker>
+        </div>
+      </div>
+      </div>
+
+    <button type="submit" class="btn btn-success">Update</button>
+    </form>
+  </div>
+
+  <br>
+
+  <div *ngIf="this.firstNameError" class="alert alert-danger">Please enter: First name</div>
+  <div *ngIf="this.lastNameError" class="alert alert-danger">Please enter: Last name</div>
+  <div *ngIf="this.dataError" class="alert alert-danger">Please enter: Date of birth</div>

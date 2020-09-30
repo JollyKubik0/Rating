@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    password: root123321
+    jdbcUrl: jdbc:mysql://localhost:3306/ratingsdj
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver

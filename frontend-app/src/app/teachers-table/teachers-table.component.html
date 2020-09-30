@@ -1,0 +1,29 @@
+<br>
+  <div class="row">
+    <app-create-teacher style="padding-left:15px;"></app-create-teacher>
+  </div>
+ <br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Lessons</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let teacher of teachers">
+      <th scope="row">{{teacher.id}}</th>
+      <td><p>{{teacher.firstName}}</p></td>
+      <td>{{teacher.lastName}}</td>
+      <td>{{teacher.dateOfBirth}}</td>
+      <td><p *ngFor="let lessons of teacher.lessons" style="display: inline-block;">{{lessons.name}}, </p></td>
+      <td><a [routerLink]="['profile/', teacher.id]"><button class="btn btn-outline-primary">E</button></a></td>
+      <td><button class="btn btn-outline-danger" (click)="onDelete(teacher.id)">X</button></td>
+    </tr>
+  </tbody>
+</table>

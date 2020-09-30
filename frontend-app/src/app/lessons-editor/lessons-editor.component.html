@@ -1,0 +1,15 @@
+<br>
+<div class="col-md-4">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <p>ID: {{this.lesson.id}}</p>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="Name" [(ngModel)]="this.lesson.name">
+    </div>
+  <button type="submit" class="btn btn-success">Update</button>
+  </form>
+</div>
+
+<br>
+
+<div *ngIf="this.nameError" class="alert alert-danger">Please enter: Name</div>

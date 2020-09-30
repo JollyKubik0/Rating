@@ -1,0 +1,38 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="form-row">
+    <div class="col-md-3">
+      <mat-form-field appearance="fill">
+          <mat-label>Teacher</mat-label>
+          <mat-select name="teacher" ngModel required #teacher>
+            <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">{{teacher.firstName}} {{teacher.lastName}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field appearance="fill">
+          <mat-label>Lesson</mat-label>
+          <mat-select name="lesson" ngModel required #lesson>
+            <mat-option *ngFor="let lesson of lessons" [value]="lesson.id">{{lesson.name}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field appearance="fill">
+          <mat-label>Pupil</mat-label>
+          <mat-select name="pupil" ngModel required #pupil>
+            <mat-option *ngFor="let pupil of pupils" [value]="pupil.id">{{pupil.firstName}} {{pupil.lastName}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field appearance="fill">
+          <mat-label>Rating</mat-label>
+          <mat-select name="rate" ngModel required #rate>
+            <mat-option *ngFor="let rate of rates" [value]="rate">{{rate}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]="teacher.value == '' || lesson.value == '' || pupil.value == '' || rate.value == ''">Rate</button>
+</form>
+<br>
